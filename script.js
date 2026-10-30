@@ -1,0 +1,7 @@
+const menu=document.getElementById('menu'),nav=document.getElementById('nav');menu.addEventListener('click',()=>nav.classList.toggle('open'));nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+document.querySelectorAll('.filters button').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filters button').forEach(b=>b.classList.toggle('active',b===btn));document.querySelectorAll('.project').forEach(card=>card.classList.toggle('hidden',btn.dataset.filter!=='todos'&&!card.dataset.cat.split(' ').includes(btn.dataset.filter)))}));
+/* EDITA ESTOS DATOS ANTES DE PUBLICAR */
+const CONTACT={email:'mariaa6932@gmail.com',github:'https://github.com/Aleja0812',linkedin:'https://www.linkedin.com/in/maria-alejandra-ibarra-gomez-b57846150/'};
+document.getElementById('email').href='mailto:'+CONTACT.email;
+[['github',CONTACT.github],['linkedin',CONTACT.linkedin]].forEach(([id,url])=>{const el=document.getElementById(id);el.href=url;if(url.includes('TU_')||url.includes('TU-'))el.addEventListener('click',e=>{e.preventDefault();alert('Edita script.js y agrega tu enlace real antes de publicar.')});else{el.target='_blank';el.rel='noopener noreferrer'}});
+document.querySelectorAll('.repo').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();alert('Añade la URL pública real del repositorio de '+a.dataset.name+' en index.html.');}));
